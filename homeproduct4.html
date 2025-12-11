@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Éclat | Tom Ford Private Blend Свещи</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+<!-- Навигация -->
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="discover.html">ОТКРИЙ</a></li>
+    </ul>
+    <div class="icons">
+      <a href="#">🔍</a>
+      <a href="#">♡</a>
+      <a href="#">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Детайл на продукта -->
+<section class="product-detail">
+  <div class="product-images">
+    <img id="mainImage" src="tomford-candle.webp" alt="Tom Ford Private Blend Свещ" class="main-image">
+    <div class="thumbnail-images">
+      <img src="tomford-candle.avif" alt="Tobacco Vanille" onclick="changeCandle('tomford-candle1.avif')">
+      <img src="tomford-candle1.avif" alt="Lost Cherry" onclick="changeCandle('tomford-candle2.avif')">
+      <img src="tomford-candle2.webp" alt="Oud Wood" onclick="changeCandle('tomford-candle3.avif')">
+      <img src="tomford-candle3.png" alt="Jasmin Rouge" onclick="changeCandle('tomford-candle4.avif')">
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h1>Tom Ford Private Blend Парфюмени Свещи</h1>
+    <p>Елегантни ароматни свещи от Tom Ford Private Blend. Създават неповторима атмосфера с висококачествени съставки и дълготраен аромат.</p>
+    <span class="price">€320</span>
+
+    <!-- Избор на вид свещ -->
+    <label for="candle-type" class="btn">Избери аромат</label>
+    <select id="candle-type" class="btn" onchange="changeCandle(this.value)">
+      <option value="tomford-candle.avif">Tobacco Vanille</option>
+      <option value="tomford-candle1.avif">Lost Cherry</option>
+      <option value="tomford-candle2.webp">Oud Wood</option>
+      <option value="tomford-candle3.png">Jasmin Rouge</option>
+    </select>
+
+    <button class="btn">Добави в количка</button>
+  </div>
+</section>
+
+<script>
+  function changeCandle(imagePath) {
+    document.getElementById('mainImage').src = imagePath;
+  }
+</script>
+
+<footer>
+  <p>© 2025 Maison Éclat. Всички права запазени.</p>
+</footer>
+
+</body>
+</html>

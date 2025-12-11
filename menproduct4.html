@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Палто с двуредно закопчаване</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="top-bar">
+      Безплатна доставка и връщане на всички поръчки
+    </div>
+
+    <nav class="navbar">
+      <div class="logo">MAISON ÉCLAT</div>
+
+    <ul class="menu">
+        <li><a href="index.html">НАЧАЛО</a></li>
+        <li><a href="menproducts.html">МЪЖЕ</a></li>
+        <li><a href="womenproducts.html">ЖЕНИ</a></li>
+        <li><a href="kidsproducts.html">ДЕЦА</a></li>
+        <li><a href="homecollection.html">ДОМ</a></li>
+        <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+        <li><a href="discover.html">ОТКРИЙ</a></li>
+      </ul>
+
+      <div class="icons">
+        <a href="#">🔍</a>
+        <a href="#">♡</a>
+        <a href="#">🛍️</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="product-detail" aria-label="Информация за продукта Палто с двуредно закопчаване">
+    <div class="product-gallery">
+      <img class="main-image" id="mainImage" src="double-breasted-coat.avif" alt="Палто с двуредно закопчаване" />
+      <div class="thumbnails">
+        <img src="double-breasted-coat.avif" alt="Палто - основна снимка" class="selected" />
+        <img src="double-breasted-coat1.avif" alt="Палто - странична снимка 1" />
+        <img src="double-breasted-coat2.avif" alt="Палто - странична снимка 2" />
+        <img src="double-breasted-coat3.avif" alt="Палто - странична снимка 2" />
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h3>Палто с двуредно закопчаване</h3>
+      <p>Състав: 70% вълна, 30% кашмир. Класическа елегантна кройка, която подчертава силуета и осигурява комфорт през студените месеци. Модел с височина 185см носи размер М.</p>
+      <span class="price">€1500</span>
+
+      <label for="size">Размер:</label>
+      <select id="size" name="size" aria-label="Изберете размер">
+        <option value="">Изберете размер</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <details>
+        <summary>Стандартна кройка</summary>
+        <p>Кройката е класическа и елегантна, с дълга дължина и стеснен силует, подходяща за ежедневна и официална употреба. Осигурява свобода на движенията и запазва формата си.</p>
+      </details>
+
+      <div class="buttons">
+        <button class="btn" type="button">Добави в количка</button>
+        <a href="favourites.html" class="fav-btn" title="Добави в Любими">ДОБАВИ В ЛЮБИМИ</a>
+      </div>
+
+      <details>
+        <summary>🚚 Доставка и връщане</summary>
+        <p>Безплатна доставка за всички поръчки. Възможност за връщане до 30 дни. Доставяме в рамките на 2–5 работни дни.</p>
+      </details>
+
+      <details>
+        <summary>💳 Опции за плащане</summary>
+        <p>Приемаме следните методи на плащане:</p>
+        <ul>
+          <li>Visa</li>
+          <li>Mastercard</li>
+          <li>American Express</li>
+          <li>Наложен платеж</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>⭐ Ревюта</summary>
+        <p><strong>Александър К.</strong>: Палтото е изключително елегантно и топло. Материалът се усеща много качествен.</p>
+        <p><strong>Мария С.</strong>: Отлична кройка, стои чудесно на силуета. Идеално за официални събития.</p>
+        <p><strong>Георги П.</strong>: Комфортно и стилно, много съм доволен от покупката. Препоръчвам!</p>
+
+        <div class="review-form">
+          <h4>Остави своето мнение</h4>
+          <form action="#" method="post">
+            <label for="name">Име:</label><br>
+            <input type="text" id="name" name="name" placeholder="Вашето име" required><br><br>
+
+            <label for="review">Мнение:</label><br>
+            <textarea id="review" name="review" placeholder="Напишете вашето мнение тук..." rows="4" required></textarea><br><br>
+
+            <button type="submit" class="review-btn">Изпрати</button>
+          </form>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Maison Éclat. Всички права запазени.</p>
+  </footer>
+
+<script>
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>

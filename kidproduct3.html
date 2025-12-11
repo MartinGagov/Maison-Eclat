@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Loro Piana Детски Сникъри</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="discover.html">ОТКРИЙ</a></li>
+    </ul>
+    <div class="icons">
+      <a href="#">🔍</a>
+      <a href="#">♡</a>
+      <a href="#">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="product-detail" aria-label="Информация за продукта Loro Piana Детски Сникъри">
+  <div class="product-gallery">
+    <img class="main-image" id="mainImage" src="kids-lp-sneakers.jpeg" alt="Loro Piana детски сникъри" />
+    <div class="thumbnails">
+      <img src="kids-lp-sneakers.jpeg" class="selected" alt="Сникъри – основна снимка" />
+      <img src="kids-lp-sneakers1.jpeg" alt="Сникъри – отблизо" />
+      <img src="kids-lp-sneakers2.jpeg" alt="Сникъри – отстрани" />
+      <img src="kids-lp-sneakers3.jpeg" alt="Сникъри – гръб" />
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h2>Loro Piana Детски Сникъри</h2>
+    <p>
+      Комфортни и висококачествени сникъри от естествена кожа. Подходящи за ежедневие, училище и спортни активности. Лек и издръжлив дизайн за деца.
+    </p>
+    <span class="price">€380</span>
+
+    <label for="size">Размер:</label>
+    <select id="size" name="size" aria-label="Изберете размер за деца">
+      <option value="">Изберете размер</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="34">34</option>
+      <option value="35">35</option>
+      <option value="36">36</option>
+      <option value="37">37</option>
+      <option value="38">38</option>
+    </select>
+
+    <div class="buttons">
+      <button class="btn" type="button">Добави в количка</button>
+      <a href="favourites.html" class="fav-btn">ДОБАВИ В ЛЮБИМИ</a>
+    </div>
+
+    <details>
+      <summary>🚚 Доставка и връщане</summary>
+      <p>Безплатна доставка за всички поръчки. Връщане в рамките на 30 дни. Доставка между 2–5 работни дни.</p>
+    </details>
+
+    <details>
+      <summary>💳 Опции за плащане</summary>
+      <ul>
+        <li>Visa</li>
+        <li>Mastercard</li>
+        <li>American Express</li>
+        <li>Наложен платеж</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>⭐ Ревюта</summary>
+      <p><strong>Иванка П.</strong>: Сникърите са изключително удобни за детето ми.</p>
+      <p><strong>Мария С.</strong>: Отлично качество и стабилна подметка. Препоръчвам!</p>
+
+      <div class="review-form">
+        <h4>Остави своето мнение</h4>
+        <form action="#" method="post">
+          <label for="name">Име:</label><br>
+          <input type="text" id="name" name="name" placeholder="Вашето име" required><br><br>
+
+          <label for="review">Мнение:</label><br>
+          <textarea id="review" name="review" rows="4" placeholder="Напишете вашето мнение тук..." required></textarea><br><br>
+
+          <button type="submit" class="review-btn">Изпрати</button>
+        </form>
+      </div>
+
+    </details>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Maison Éclat. Всички права запазени.</p>
+</footer>
+
+<script>
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>

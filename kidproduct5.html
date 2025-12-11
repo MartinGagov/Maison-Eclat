@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Dior Детска Рокля</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="discover.html">ОТКРИЙ</a></li>
+    </ul>
+    <div class="icons">
+      <a href="#">🔍</a>
+      <a href="#">♡</a>
+      <a href="#">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="product-detail" aria-label="Информация за продукта Dior Детска Рокля">
+  <div class="product-gallery">
+    <img class="main-image" id="mainImage" src="kids-dior-dress.webp" alt="Dior детска рокля" />
+    <div class="thumbnails">
+      <img src="kids-dior-dress.webp" class="selected" alt="Рокля – основна снимка" />
+      <img src="kids-dior-dress1.webp" alt="Рокля – отстрани" />
+      <img src="kids-dior-dress2.webp" alt="Рокля – гръб" />
+      <img src="kids-dior-dress3.webp" alt="Рокля – детайли" />
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h2>Dior Детска Рокля</h2>
+    <p>Фина копринена рокля с деликатни детайли — идеална за специални поводи. Мек и комфортен плат, подходящ за чувствителната кожа на децата.</p>
+    <span class="price">€740</span>
+
+    <label for="size">Размер:</label>
+    <select id="size" name="size" aria-label="Изберете детски размер">
+      <option value="">Изберете размер</option>
+      <option value="4">4 години</option>
+      <option value="6">6 години</option>
+      <option value="8">8 години</option>
+      <option value="10">10 години</option>
+      <option value="12">12 години</option>
+      <option value="14">14 години</option>
+    </select>
+
+    <div class="buttons">
+      <button class="btn" type="button">Добави в количка</button>
+      <a href="favourites.html" class="fav-btn">ДОБАВИ В ЛЮБИМИ</a>
+    </div>
+
+    <details>
+      <summary>🚚 Доставка и връщане</summary>
+      <p>Безплатна доставка за всички поръчки. Връщане в рамките на 30 дни. Доставка между 2–5 работни дни.</p>
+    </details>
+
+    <details>
+      <summary>💳 Опции за плащане</summary>
+      <ul>
+        <li>Visa</li>
+        <li>Mastercard</li>
+        <li>American Express</li>
+        <li>Наложен платеж</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>⭐ Ревюта</summary>
+      <p><strong>Анна К.</strong>: Роклята е изключително елегантна и мека.</p>
+      <p><strong>Илия П.</strong>: Отлично качество и перфектно пасва на дъщеря ми.</p>
+
+      <div class="review-form">
+        <h4>Остави своето мнение</h4>
+        <form action="#" method="post">
+          <label for="name">Име:</label><br>
+          <input type="text" id="name" name="name" placeholder="Вашето име" required><br><br>
+
+          <label for="review">Мнение:</label><br>
+          <textarea id="review" name="review" rows="4" placeholder="Напишете вашето мнение тук..." required></textarea><br><br>
+
+          <button type="submit" class="review-btn">Изпрати</button>
+        </form>
+      </div>
+
+    </details>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Maison Éclat. Всички права запазени.</p>
+</footer>
+
+<script>
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Loro Piana Сникъри</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="top-bar">
+      Безплатна доставка и връщане на всички поръчки
+    </div>
+
+    <nav class="navbar">
+      <div class="logo">MAISON ÉCLAT</div>
+
+      <ul class="menu">
+        <li><a href="index.html">НАЧАЛО</a></li>
+        <li><a href="menproducts.html">МЪЖЕ</a></li>
+        <li><a href="womenproducts.html">ЖЕНИ</a></li>
+        <li><a href="kidsproducts.html">ДЕЦА</a></li>
+        <li><a href="homecollection.html">ДОМ</a></li>
+        <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+        <li><a href="discover.html">ОТКРИЙ</a></li>
+        <li><a href="sale.html">РАЗПРОДАЖБА</a></li>
+      </ul>
+
+      <div class="icons">
+        <a href="#">🔍</a>
+        <a href="#">♡</a>
+        <a href="#">🛍️</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="product-detail" aria-label="Информация за продукта Loro Piana Сникъри">
+    <div class="product-gallery">
+      <img class="main-image" id="mainImage" src="sneakers.webp" alt="Loro Piana Сникъри" />
+      <div class="thumbnails">
+        <img src="sneakers.webp" alt="Сникъри - основна снимка" class="selected" />
+        <img src="sneakers1.webp" alt="Сникъри - странична снимка 1" />
+        <img src="sneakers2.webp" alt="Сникъри - странична снимка 2" />
+        <img src="sneakers3.webp" alt="Сникъри - основна снимка" class="selected" />
+      </div>
+    </div>
+
+   <div class="product-info">
+  <h3>Loro Piana Сникъри</h3>
+  <p>Вдъхновени от италианската елегантност, тези сникъри са изработени от висококачествена естествена кожа с внимание към всеки детайл. Леката конструкция осигурява максимален комфорт, а изисканата визия носи усещане за лукс и стил във всеки ден. Перфектни за градски разходки, пътувания и свободно време, с отлична амортизация. Размери: 40–46.</p>
+  <span class="price">€480</span>
+
+
+      <label for="size">Размер:</label>
+      <select id="size" name="size" aria-label="Изберете размер">
+        <option value="">Изберете размер</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+        <option value="45">45</option>
+        <option value="46">46</option>
+      </select>
+
+      <details>
+        <summary>Спортна конструкция</summary>
+        <p>Сникърите предлагат лекота, удобство и стабилност, подходящи за целодневно носене. Отлично сцепление благодарение на гумената подметка.</p>
+      </details>
+
+      <div class="buttons">
+        <button class="btn" type="button">Добави в количка</button>
+        <a href="favourites.html" class="fav-btn" title="Добави в Любими">ДОБАВИ В ЛЮБИМИ</a>
+      </div>
+
+      <details>
+        <summary>🚚 Доставка и връщане</summary>
+        <p>Безплатна доставка за всички поръчки. Възможност за връщане до 30 дни. Доставяме в рамките на 2–5 работни дни.</p>
+      </details>
+
+      <details>
+        <summary>💳 Опции за плащане</summary>
+        <p>Приемаме следните методи на плащане:</p>
+        <ul>
+          <li>Visa</li>
+          <li>Mastercard</li>
+          <li>American Express</li>
+          <li>Наложен платеж</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>⭐ Ревюта</summary>
+        <p><strong>Мария П.</strong>: Много леки и удобни сникъри. Перфектни за ежедневни разходки.</p>
+        <p><strong>Александър Т.</strong>: Отлично качество и стабилна подметка. Препоръчвам за спорт и свободно време.</p>
+        <p><strong>Виктория К.</strong>: Стилни и комфортни. Материалът диша добре, не се запарват краката.</p>
+
+        <div class="review-form">
+          <h4>Остави своето мнение</h4>
+          <form action="#" method="post">
+            <label for="name">Име:</label><br>
+            <input type="text" id="name" name="name" placeholder="Вашето име" required><br><br>
+
+            <label for="review">Мнение:</label><br>
+            <textarea id="review" name="review" placeholder="Напишете вашето мнение тук..." rows="4" required></textarea><br><br>
+
+            <button type="submit" class="review-btn">Изпрати</button>
+          </form>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Maison Éclat. Всички права запазени.</p>
+  </footer>
+
+<script>
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
