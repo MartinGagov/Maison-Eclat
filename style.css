@@ -1,0 +1,994 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Playfair Display", serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ======= ВИДЕО ФОН ======= */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
+/* ======= НАВИГАЦИЯ ======= */
+.top-bar {
+  background-color: rgba(11, 29, 51, 0.8);
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 0;
+  backdrop-filter: blur(3px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #d3b185;
+}
+
+.icons a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* ======= ГЛАВЕН ТЕКСТ ======= */
+.hero-content {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #a17d5b;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #8b684d;
+}
+
+/* ======= FOOTER ======= */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
+/*index*/ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Playfair Display", serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Видео фон */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Навигация */
+.top-bar {
+  background-color: rgba(11, 29, 51, 0.8);
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 0;
+  backdrop-filter: blur(3px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #d3b185;
+}
+
+.icons a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* Категории секции */
+.category {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-content {
+  max-width: 700px;
+}
+
+.category h2 {
+  font-size: 56px;
+  color: #d3b185;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.category p {
+  font-size: 18px;
+  color: #eee;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Бутон */
+.btn {
+  display: inline-block;
+  background-color: #a17d5b;
+  color: white;
+  padding: 12px 36px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #8b684d;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
+/* ======= СНИМКИ В КАТЕГОРИИТЕ ======= */
+.category-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin: 30px 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.category-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
+}
+/* ======= ПО-МАЛКА СНИМКА ЗА МЪЖКАТА КАТЕГОРИЯ ======= */
+.small-image {
+  max-width: 400px; /* по-малка ширина */
+  margin-top: 20px;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.small-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
+}
+
+.products-section {
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.product-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-card img {
+  max-width: 200px;
+  border-radius: 8px;
+}
+
+.product-info {
+  max-width: 550px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.description {
+  margin-bottom: 15px;
+}
+/*men product1*/
+/* ======= ОБЩИ СТИЛОВЕ ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playfair Display", serif;
+  background-color: #0b1d33; /* тъмно син фон */
+  color: white;
+  min-height: 100vh;
+}
+
+/* ======= НАВИГАЦИЯ ======= */
+.top-bar {
+  background-color: rgba(11, 29, 51, 0.8);
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 0;
+  backdrop-filter: blur(3px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #d3b185;
+}
+
+.icons a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* ======= СЕКЦИЯ ПРОДУКТИ ======= */
+.products {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+/* Грид на продуктите */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Продуктова карта */
+.product {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product p {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.price {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #d3b185;
+}
+
+/* Бутон "Добави в количка" */
+.product .btn {
+  background-color: #a17d5b;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product .btn:hover {
+  background-color: #8b684d;
+  transform: translateY(-3px);
+}
+
+/* Hover ефект върху продукт */
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* ======= FOOTER ======= */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  margin-top: 50px;
+}
+body {
+      font-family: 'Georgia', serif;
+      color: #222;
+      background-color: #949496;
+      margin: 0;
+      padding: 0;
+    }
+
+    header .top-bar {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 6px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #111;
+      font-size: 15px;
+    }
+
+    /* ---- Продуктова секция ---- */
+    /* ======= ПРОДУКТОВИ СТРАНИЦИ (БЕЗ ВИДЕО) ======= */
+body.products-page {
+  background-color: #0b1d33; /* наситено тъмносин */
+  background-image: linear-gradient(180deg, #0b1d33 0%, #122a4d 100%);
+  color: white;
+  overflow-x: hidden;
+}
+
+body.products-page .products {
+  background: transparent;
+}
+
+body.products-page .product {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.products-page .product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+body.products-page footer {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+    /*menproduct1*/ 
+    /* ======= ПРОДУКТОВИ СТРАНИЦИ – ВИЗИЯ КАТО НА НАЧАЛНАТА ======= */
+body.products-page {
+  background: linear-gradient(180deg, #0b1d33 0%, #1c273b 100%);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Контейнер с продукти */
+body.products-page .products {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 80px 60px;
+}
+
+/* Продуктови карти */
+body.products-page .product {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.products-page .product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Текст и бутони */
+body.products-page .product h3 {
+  color: #d3b185;
+}
+
+body.products-page .price {
+  color: #d3b185;
+}
+
+body.products-page .btn {
+  background-color: #a17d5b;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+body.products-page .btn:hover {
+  background-color: #8b684d;
+}
+
+/* Footer */
+body.products-page footer {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  color: #ccc;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #000000; /* Черен фон */
+  color: #f0f0f0;
+  min-height: 100vh;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  user-select: none;
+}
+
+/* ----- TOP BAR ----- */
+.top-bar {
+  background-color: rgba(255, 255, 255, 0.08);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  color: #e8e0d0;
+  user-select: none;
+}
+
+/* ----- NAVIGATION ----- */
+header nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background-color: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(6px);
+  user-select: none;
+  color: #f0e8d8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 0.25em;
+  color: #c89b67; /* Златен цвят за логото */
+}
+
+/* ----- MENU ----- */
+ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+ul.menu li a {
+  color: #c89b67; /* Златен цвят за категориите */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+ul.menu li a:hover {
+  color: #e6cfa5; /* По-светъл златист при hover */
+}
+
+/* ----- PRODUCT DETAIL ----- */
+.product-detail {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 30px;
+  display: flex;
+  gap: 40px;
+  user-select: text;
+  color: #e0e0e0;
+  padding: 40px 0;
+}
+
+.product-gallery {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-gallery .main-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 0.7);
+  object-fit: cover;
+  cursor: pointer;
+  user-select: none;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.thumbnails img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  user-select: none;
+}
+
+.thumbnails img.selected,
+.thumbnails img:hover {
+  border-color: #c89b67;
+}
+
+/* ----- PRODUCT INFO ----- */
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 16px;
+}
+
+.product-info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #c89b67; /* Златен цвят за заглавието */
+  user-select: none;
+}
+
+.product-info p {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.4;
+  user-select: text;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 26px;
+  color: #c89b67;
+  margin-top: 10px;
+  user-select: none;
+}
+
+/* ----- FORM ELEMENTS ----- */
+label {
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  display: block;
+  user-select: none;
+  color: #ddd;
+}
+
+select {
+  width: 180px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #c89b67;
+  background-color: #111;
+  color: #f0e8d8;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+select:hover,
+select:focus {
+  background-color: #222;
+  outline: none;
+}
+
+/* ----- BUTTON ----- */
+.btn {
+  margin-top: 25px;
+  background-color: #c89b67;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 14px 30px;
+  border-radius: 28px;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  max-width: 220px;
+}
+
+.btn:hover {
+  background-color: #b28252;
+}
+
+/* ----- DETAILS ----- */
+details {
+  margin-top: 25px;
+  background-color: #111;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 15px;
+  color: #c89b67;
+  cursor: pointer;
+  user-select: none;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+details[open] summary::after {
+  content: "▲";
+  float: right;
+  font-size: 12px;
+}
+
+details summary {
+  font-weight: 700;
+  outline: none;
+  list-style: none;
+  user-select: none;
+  position: relative;
+  color: #c89b67;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details p, details ul {
+  margin-top: 12px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+details ul li {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+/* ----- FOOTER ----- */
+footer {
+  margin-top: 60px;
+  text-align: center;
+  padding: 18px 0;
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 900px) {
+  .product-detail {
+    flex-direction: column;
+    padding: 30px 20px 30px 20px;
+  }
+  .product-gallery {
+    max-width: 100%;
+  }
+  .product-info {
+    max-width: 100%;
+  }
+}
+
+/*бутон за ревю*/
+
+.review-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 30px auto;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.review-form h4 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 14px;
+}
+
+.review-form input::placeholder,
+.review-form textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: #7abaff; /* лек син акцент при фокус */
+}
+
+.review-btn {
+  background-color: #0b1d33; /* основният тъмен син */
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.review-btn:hover {
+  background-color: white;
+  color: #0b1d33;
+  border-color: #0b1d33;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+/*parfumni sveshti*/
+.product-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-image {
+      width: 400px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .thumbnail-images img {
+      width: 100px;
+      height: auto;
+      margin: 5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .thumbnail-images img:hover {
+      border-color: #000;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 15px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
