@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Amouage Reflection 45</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="discover.html">ОТКРИЙ</a></li>
+    </ul>
+    <div class="icons">
+      <a href="#">🔍</a>
+      <a href="#">♡</a>
+      <a href="#">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="product-detail" aria-label="Информация за продукта Amouage Reflection 45">
+  <div class="product-gallery">
+    <img class="main-image" id="mainImage" src="amouage-reflection-45-extrait-de-parfum.jpg" alt="Amouage Reflection 45" />
+    <div class="thumbnails">
+      <img src="amouage-reflection-45-extrait-de-parfum.jpg" alt="Amouage Reflection 45 основна снимка" class="selected" />
+      <img src="amouage.webp" alt="Amouage Reflection 45 флакон" />
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h2>Amouage Reflection 45 – Unisex</h2>
+    <p>
+      Amouage Reflection 45 е изключително луксозен и дълбок аромат,
+      който представлява по-концентрирана и интензивна интерпретация
+      на класическия Reflection. Ароматът съчетава кремообразни флорални
+      нотки с богата дървесна основа, създавайки усещане за елегантност,
+      увереност и изтънченост.
+    </p>
+
+    <!-- Цена и избор на разфасовка -->
+    <span class="price" id="price">€430</span>
+
+    <label for="size">Избери разфасовка:</label>
+    <select id="size" name="size" aria-label="Изберете разфасовка" onchange="updatePrice()">
+      <option value="100">100 ml</option>
+      <option value="50">50 ml</option>
+    </select>
+
+    <!-- Пирамида и дълготрайност -->
+    <details>
+      <summary>📌 Пирамида на нотките и дълготрайност</summary>
+
+      <h4>🍃 Пирамида на аромата</h4>
+      <ul>
+        <li><strong>Горни нотки:</strong> Лавандула, розов пипер, бензоин</li>
+        <li><strong>Средни нотки:</strong> Ирис, жасмин, нероли</li>
+        <li><strong>Базови нотки:</strong> Сандалово дърво, ветивер, пачули, кедър</li>
+      </ul>
+
+      <h4>⏱️ Дълготрайност и проекция</h4>
+      <p>
+        Amouage Reflection 45 се отличава с изключителна дълготрайност
+        (<strong>12+ часа</strong>) и силна, но елегантна проекция,
+        оставяща луксозен ароматен шлейф.
+      </p>
+    </details>
+
+    <details>
+      <summary>Информация за продукта</summary>
+      <p>
+        Reflection 45 е създаден като Extrait de Parfum,
+        който подчертава дълбочината и богатството на оригиналната
+        композиция. Това е аромат за ценители, които търсят
+        нещо наистина изключително и неподвластно на времето.
+      </p>
+    </details>
+
+    <!-- Бутони -->
+    <div class="buttons">
+      <button class="btn" type="button">Добави в количка</button>
+      <a href="favourites.html" class="fav-btn" title="Добави в Любими">ДОБАВИ В ЛЮБИМИ</a>
+    </div>
+
+    <!-- Доставка -->
+    <details>
+      <summary>🚚 Доставка и връщане</summary>
+      <p>Безплатна доставка за всички поръчки. Възможност за връщане до 30 дни. Доставяме в рамките на 2–5 работни дни.</p>
+    </details>
+
+    <!-- Плащане -->
+    <details>
+      <summary>💳 Опции за плащане</summary>
+      <ul>
+        <li>Visa</li>
+        <li>Mastercard</li>
+        <li>American Express</li>
+        <li>Наложен платеж</li>
+      </ul>
+    </details>
+
+    <!-- Ревюта -->
+    <details>
+      <summary>⭐ Ревюта</summary>
+      <p><strong>Николай К.</strong>: Изключително елегантен и дълбок аромат.</p>
+      <p><strong>Александър М.</strong>: Много по-интензивен от оригиналния Reflection.</p>
+      <p><strong>Даниел С.</strong>: Истински нишов парфюм за ценители.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Maison Éclat. Всички права запазени.</p>
+</footer>
+
+<script>
+  // Смяна на снимките
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+
+  
+</script>
+
+</body>
+</html>
