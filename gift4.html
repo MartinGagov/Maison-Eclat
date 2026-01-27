@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Xerjoff Naxos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="discover.html">ОТКРИЙ</a></li>
+    </ul>
+    <div class="icons">
+      <a href="#">🔍</a>
+      <a href="#">♡</a>
+      <a href="#">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="product-detail" aria-label="Информация за продукта Xerjoff Naxos">
+  <div class="product-gallery">
+    <img class="main-image" id="mainImage" src="xerjoff-naxos.webp" alt="Xerjoff Naxos" />
+    <div class="thumbnails">
+      <img src="xerjoff-naxos.webp" alt="Xerjoff Naxos основна снимка" class="selected" />
+      <img src="xerjoff-naxos1.webp" alt="Xerjoff Naxos флакон" />
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h2>Xerjoff Naxos – Unisex</h2>
+    <p>
+      Xerjoff Naxos е богат и интензивен аромат, който съчетава
+      медена сладост, тютюневи нюанси и свежи цитруси.
+      Композицията е топла, чувствена и изключително запомняща се,
+      превръщайки Naxos в емблематичен нишов парфюм.
+    </p>
+
+    <!-- Цена -->
+    <span class="price">€140</span>
+
+    <!-- Пирамида и дълготрайност -->
+    <details>
+      <summary>📌 Пирамида на нотките и дълготрайност</summary>
+
+      <h4>🍯 Пирамида на аромата</h4>
+      <ul>
+        <li><strong>Горни нотки:</strong> Бергамот, лимон, лавандула</li>
+        <li><strong>Средни нотки:</strong> Мед, канела, кашмеран</li>
+        <li><strong>Базови нотки:</strong> Тютюн, ванилия, тонка</li>
+      </ul>
+
+      <h4>⏱️ Дълготрайност и проекция</h4>
+      <p>
+        Xerjoff Naxos се отличава с отлична дълготрайност
+        (<strong>10–12 часа</strong>) и силна проекция,
+        която оставя плътен и елегантен ароматен шлейф.
+      </p>
+    </details>
+
+    <details>
+      <summary>Информация за продукта</summary>
+      <p>
+        Naxos е част от колекцията Xerjoff 1861 и е вдъхновен
+        от италианското културно наследство. Ароматът е
+        хармонично балансиран между свежест и топлина,
+        което го прави подходящ за целогодишна употреба.
+      </p>
+    </details>
+
+    <!-- Бутони -->
+    <div class="buttons">
+      <button class="btn" type="button">Добави в количка</button>
+      <a href="favourites.html" class="fav-btn" title="Добави в Любими">ДОБАВИ В ЛЮБИМИ</a>
+    </div>
+
+    <!-- Доставка -->
+    <details>
+      <summary>🚚 Доставка и връщане</summary>
+      <p>Безплатна доставка за всички поръчки. Възможност за връщане до 30 дни. Доставяме в рамките на 2–5 работни дни.</p>
+    </details>
+
+    <!-- Плащане -->
+    <details>
+      <summary>💳 Опции за плащане</summary>
+      <ul>
+        <li>Visa</li>
+        <li>Mastercard</li>
+        <li>American Express</li>
+        <li>Наложен платеж</li>
+      </ul>
+    </details>
+
+    <!-- Ревюта -->
+    <details>
+      <summary>⭐ Ревюта</summary>
+      <p><strong>Мартин В.</strong>: Много топъл и плътен аромат.</p>
+      <p><strong>Стефан Г.</strong>: Тютюнът и медът са уникална комбинация.</p>
+      <p><strong>Ивайло П.</strong>: Един от най-добрите нишови парфюми.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Maison Éclat. Всички права запазени.</p>
+</footer>
+
+<script>
+  // Смяна на главната снимка
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
