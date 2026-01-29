@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Éclat | Колие от бяло злато</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="discover.html">ОТКРИЙ</a></li>
+    </ul>
+    <div class="icons">
+      <a href="#">🔍</a>
+      <a href="#">♡</a>
+      <a href="#">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="product-detail" aria-label="Информация за продукта Колие от бяло злато">
+  <div class="product-gallery">
+    <img class="main-image" id="mainImage" src="kolie-bqlo-zlato.jpg" alt="Колие от бяло злато" />
+    <div class="thumbnails">
+      <img src="kolie-bqlo-zlato.jpg" alt="Колие от бяло злато – основна снимка" class="selected" />
+      <img src="kolie-bqlo-zlato2.jpg" alt="Колие от бяло злато – детайл" />
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h2>Колие от бяло злато – 14K</h2>
+    <p>
+      Луксозно колие от 14-каратово бяло злато, изработено с внимание
+      към детайла и изчистена естетика. Бижуто съчетава класически стил
+      и съвременна елегантност, което го прави идеален избор както за
+      специални поводи, така и за изискано ежедневие.
+    </p>
+
+    <!-- Цена -->
+    <span class="price">€520</span>
+
+    <!-- Детайли за продукта -->
+    <details>
+      <summary>📌 Характеристики на бижуто</summary>
+      <ul>
+        <li><strong>Материал:</strong> 14K бяло злато</li>
+        <li><strong>Тип:</strong> Колие</li>
+        <li><strong>Стил:</strong> Класически / елегантен</li>
+        <li><strong>Подходящо за:</strong> Подарък, официални поводи</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Информация за продукта</summary>
+      <p>
+        Бялото злато е символ на изтънченост и дълготрайна стойност.
+        Това колие е проектирано така, че да подчертае елегантността
+        на своя притежател, без да бъде натрапчиво.
+      </p>
+    </details>
+
+    <!-- Бутони -->
+    <div class="buttons">
+      <button class="btn" type="button">Добави в количка</button>
+      <a href="favourites.html" class="fav-btn" title="Добави в Любими">ДОБАВИ В ЛЮБИМИ</a>
+    </div>
+
+    <!-- Доставка -->
+    <details>
+      <summary>🚚 Доставка и връщане</summary>
+      <p>
+        Безплатна доставка за всички поръчки. Възможност за връщане
+        до 30 дни. Доставяме в рамките на 2–5 работни дни.
+      </p>
+    </details>
+
+    <!-- Плащане -->
+    <details>
+      <summary>💳 Опции за плащане</summary>
+      <ul>
+        <li>Visa</li>
+        <li>Mastercard</li>
+        <li>American Express</li>
+        <li>Наложен платеж</li>
+      </ul>
+    </details>
+
+    <!-- Ревюта -->
+    <details>
+      <summary>⭐ Ревюта</summary>
+      <p><strong>Мария Т.</strong>: Изключително фино и красиво колие.</p>
+      <p><strong>Елена С.</strong>: Перфектен подарък – изглежда много луксозно.</p>
+      <p><strong>Анна К.</strong>: Качеството е на много високо ниво.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Maison Éclat. Всички права запазени.</p>
+</footer>
+
+<script>
+  // Смяна на снимките
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnails img');
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+      mainImage.alt = thumb.alt;
+
+      thumbnails.forEach(img => img.classList.remove('selected'));
+      thumb.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
