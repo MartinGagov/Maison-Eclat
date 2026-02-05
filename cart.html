@@ -31,22 +31,10 @@
   </nav>
 </header>
 
-<!-- EMPTY CART -->
-<section class="empty-cart">
-  <h1>Вашата количка е празна</h1>
-  <p>
-    Добавете избрани артикули, за да продължите към покупка  
-    или влезте в профила си, за да видите запазените продукти.
-  </p>
-
-  <div class="empty-cart-actions">
-    <a href="my-account.html" class="btn-outline">ВХОД</a>
-    <a href="products.html" class="btn-primary">ПРОДЪЛЖИ ПАЗАРУВАНЕТО</a>
-  </div>
-</section>
+<!-- CART -->
+<section class="cart-section" id="cartSection"></section>
 
 <footer>
-  <!-- ТВОЯ СТАНДАРТЕН FOOTER -->
   <div class="footer-container">
 
     <div class="footer-column">
@@ -90,5 +78,67 @@
   </div>
 </footer>
 
+<!-- JAVASCRIPT -->
+<script>
+  const cartSection = document.getElementById("cartSection");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    cartSection.innerHTML = `
+      <div class="empty-cart">
+        <h1>Вашата количка е празна</h1>
+        <p>
+          Добавете избрани артикули, за да продължите към покупка
+          или влезте в профила си, за да видите запазените продукти.
+        </p>
+        <div class="empty-cart-actions">
+          <a href="my-account.html" class="btn-outline">ВХОД</a>
+          <a href="index.html" class="btn-primary">ПРОДЪЛЖИ ПАЗАРУВАНЕТО</a>
+        </div>
+      </div>
+    `;
+  } else {
+    let total = 0;
+
+    cartSection.innerHTML = `
+      <div class="cart-container">
+        <h1>Вашата количка</h1>
+        <div class="cart-items"></div>
+        <div class="cart-summary">
+          <h3>Общо: <span id="cartTotal"></span></h3>
+          <button class="btn-primary">ПРОДЪЛЖИ КЪМ ПЛАЩАНЕ</button>
+        </div>
+      </div>
+    `;
+
+    const itemsContainer = document.querySelector(".cart-items");
+
+    cart.forEach((item, index) => {
+      total += item.price;
+
+      itemsContainer.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-info">
+            <h4>${item.name}</h4>
+            <p>${item.size}</p>
+            <span>€${item.price}</span>
+            <button onclick="removeItem(${index})">Премахни</button>
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("cartTotal").textContent = `€${total}`;
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+  }
+</script>
+
 </body>
 </html>
+
