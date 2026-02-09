@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Éclat | Моят профил</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+     <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
+    </ul>
+    <div class="icons">
+     <a href="#" id="openSearch">🔍</a>
+
+      
+      <a href="cart.html">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="account-section">
+  <div class="account-container">
+
+    <!-- LOGIN -->
+    <div class="account-box">
+      <h2>Вход в профила</h2>
+      <p>Влезте в своя акаунт, за да управлявате поръчките си.</p>
+
+      <form>
+        <input type="email" placeholder="Имейл адрес" required>
+        <input type="password" placeholder="Парола" required>
+        <button type="submit" class="btn">Вход</button>
+      </form>
+
+      <a href="#" class="account-link">Забравена парола?</a>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="account-box">
+      <h2>Създай профил</h2>
+      <p>
+        Регистрирайте се и получете достъп до
+        ексклузивни предложения и персонализирани оферти.
+      </p>
+
+      <form>
+        <input type="text" placeholder="Име и фамилия" required>
+        <input type="email" placeholder="Имейл адрес" required>
+        <input type="password" placeholder="Парола" required>
+
+        <label class="checkbox">
+          <input type="checkbox" required>
+          Абонирам се за бюлетина и получавам <strong>10% отстъпка</strong>
+        </label>
+
+        <button type="submit" class="btn">Регистрация</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+     <div class="footer-container">
+     <!-- Бранд -->
+    <div class="footer-column">
+      <h3>MAISON ÉCLAT</h3>
+      <p>
+        Maison Éclat е луксозен онлайн магазин, предлагащ
+        внимателно подбрани продукти, съчетаващи стил,
+        качество и елегантност.
+      </p>
+    </div>
+
+    <!-- Информация -->
+    <div class="footer-column">
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="terms.html">Общи условия</a></li>
+        <li><a href="privacy.html">Политика за поверителност</a></li>
+        <li><a href="cookies.html">Политика за бисквитки</a></li>
+      </ul>
+    </div>
+
+    <!-- Пазаруване -->
+    <div class="footer-column">
+      <h4>Пазаруване</h4>
+      <ul>
+        <li><a href="delivery.html">Информация за доставка</a></li>
+        <li><a href="returns.html">Връщане и замяна</a></li>
+        <li><a href="faq.html">Често задавани въпроси</a></li>
+        <li><a href="gifts.html">Подаръци</a></li>
+      </ul>
+    </div>
+
+    <!-- Контакти -->
+    <div class="footer-column">
+      <h4>Контакти</h4>
+      <ul>
+        <li>Email: support@maisoneclat.com</li>
+        <li>Телефон: +359 888 123 456</li>
+        <li><a href="contact.html">Свържи се с нас</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Maison Éclat. Всички права запазени.</p>
+  </div>
+
+
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="search.js"></script>
+</body>
+</html>
