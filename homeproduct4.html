@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maison Éclat | Tom Ford Private Blend Свещи</title>
+  <title>Maison Éclat | Декоративни вази от кристал</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    
-  </style>
 </head>
 <body>
 
@@ -26,52 +23,46 @@
       <li><a href="kidsproducts.html">ДЕЦА</a></li>
       <li><a href="homecollection.html">ДОМ</a></li>
       <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
-     <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
+      <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
     <div class="icons">
       <a href="#" id="openSearch">🔍</a>
 
 
-      <button class="add-to-cart header-cart" onclick="addToCart({ id: 'homeproduct4', name: document.querySelector('.product-info h1')?.textContent.trim() || 'Tom Ford Private Blend Парфюмени Свещи', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'tomford-candle.webp' })">🛍️</button>
+      <button class="add-to-cart header-cart" onclick="addToCart({ id: 'homeproduct5', name: document.querySelector('.product-info h1')?.textContent.trim() || 'Декоративни вази от кристал', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'vase.jfif' })">🛍️</button>s
     </div>
   </nav>
 </header>
 
 <!-- Детайл на продукта -->
 <section class="product-detail">
-  <div class="product-images">
-    <img id="mainImage" src="tomford-candle.webp" alt="Tom Ford Private Blend Свещ" class="main-image">
-    <div class="thumbnail-images">
-      <img src="tomford-candle.avif" alt="Tobacco Vanille" onclick="changeCandle('tomford-candle1.avif')">
-      <img src="tomford-candle1.avif" alt="Lost Cherry" onclick="changeCandle('tomford-candle2.avif')">
-      <img src="tomford-candle2.webp" alt="Oud Wood" onclick="changeCandle('tomford-candle3.avif')">
-      <img src="tomford-candle3.png" alt="Jasmin Rouge" onclick="changeCandle('tomford-candle4.avif')">
-    </div>
+  <div class="product-image">
+   
+  </div>
+
+  <!-- Място за още снимки (в стила на първия дизайн) -->
+  <div class="product-gallery">
+    <img src="vase.jfif" alt="Ваза - изглед 2">
+    <img src="vase1.jfif" alt="Ваза - изглед 3">
+   
   </div>
 
   <div class="product-info">
-    <h1>Tom Ford Private Blend Парфюмени Свещи</h1>
-    <p>Елегантни ароматни свещи от Tom Ford Private Blend. Създават неповторима атмосфера с висококачествени съставки и дълготраен аромат.</p>
-    <span class="price">€320</span>
+    <h1>Декоративни вази от кристал</h1>
+    <p>Изящни кристални вази с минималистичен дизайн. Перфектни за централна маса или рафтове.</p>
+    <span class="price">€450</span>
 
-    <!-- Избор на вид свещ -->
-    <label for="candle-type" class="btn">Избери аромат</label>
-    <select id="candle-type" class="btn" onchange="changeCandle(this.value)">
-      <option value="tomford-candle.avif">Tobacco Vanille</option>
-      <option value="tomford-candle1.avif">Lost Cherry</option>
-      <option value="tomford-candle2.webp">Oud Wood</option>
-      <option value="tomford-candle3.png">Jasmin Rouge</option>
+    <!-- Добавяне в количка -->
+    <label for="size" class="btn">Избери размер</label>
+    <select id="size" class="btn">
+      <option value="small">Малка</option>
+      <option value="medium">Средна</option>
+      <option value="large">Голяма</option>
     </select>
 
-    <button class="btn add-to-cart" onclick="addToCart({ id: 'homeproduct4', name: document.querySelector('.product-info h1')?.textContent.trim() || 'Tom Ford Private Blend Парфюмени Свещи', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'tomford-candle.webp' })">Добави в количка</button>
+    <button class="btn add-to-cart" onclick="addToCart({ id: 'homeproduct5', name: document.querySelector('.product-info h1')?.textContent.trim() || 'Декоративни вази от кристал', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'vase.jfif' })">Добави в количка</button>
   </div>
 </section>
-
-<script>
-  function changeCandle(imagePath) {
-    document.getElementById('mainImage').src = imagePath;
-  }
-</script>
 
 <footer>
  <div class="footer-container">
@@ -171,15 +162,16 @@
     window.location.href = 'cart.html';
   }
 </script>
-<script src="search.js"></script>
 </body>
 </html>
 
   </footer>
 
+<script src="search.js"></script>
 </body>
 </html>
 </footer>
 
 </body>
 </html>
+
