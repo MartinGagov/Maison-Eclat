@@ -25,13 +25,14 @@
       <li><a href="kidsproducts.html">ДЕЦА</a></li>
       <li><a href="homecollection.html">ДОМ</a></li>
       <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
-      <li><a href="discover.html">ОТКРИЙ</a></li>
+     <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
 
     <div class="icons">
-      <a href="#">🔍</a>
-      <a href="#">♡</a>
-      <a href="#">🛍️</a>
+      <a href="#" id="openSearch">🔍</a>
+
+
+      <button class="add-to-cart header-cart" onclick="addToCart({ id: 'kidproduct1', name: document.querySelector('.product-info h2')?.textContent.trim() || 'Детски кашмирен пуловер', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'kids-cashmere-sweater.avif' })">🛍️</button>s
     </div>
   </nav>
 </header>
@@ -66,8 +67,7 @@
     </select>
 
     <div class="buttons">
-      <button class="btn" type="button">Добави в количка</button>
-      <a href="favourites.html" class="fav-btn">ДОБАВИ В ЛЮБИМИ</a>
+      <button class="btn add-to-cart" type="button" onclick="addToCart({ id: 'kidproduct1', name: document.querySelector('.product-info h2')?.textContent.trim() || 'Детски кашмирен пуловер', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'kids-cashmere-sweater.avif' })">Добави в количка</button>
     </div>
 
     <details>
@@ -159,7 +159,8 @@
   <div class="footer-bottom">
     <p>© 2025 Maison Éclat. Всички права запазени.</p>
   </div>
-</footer>
+
+  </footer>
 
   </footer>
 </body>
@@ -186,5 +187,21 @@
   });
 </script>
 
+<script>
+  function addToCart(product) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) { existing.quantity += 1; } else { cart.push(Object.assign({}, product, { quantity: 1 })); }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html';
+  }
+</script>
+<script src="search.js"></script>
 </body>
 </html>
+
+
+
+
+
+
