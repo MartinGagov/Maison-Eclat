@@ -120,20 +120,26 @@
   </div>
 
   <!-- JS ЗА POPUP -->
-  <script>
-    window.addEventListener("load", () => {
-      if (!localStorage.getItem("popupShown")) {
-        setTimeout(() => {
-          document.getElementById("newsletter-popup").style.display = "flex";
-          localStorage.setItem("popupShown", "true");
-        }, 3000);
-      }
-    });
+ <script>
+const popup = document.getElementById("newsletter-popup");
 
-    function closePopup() {
-      document.getElementById("newsletter-popup").style.display = "none";
-    }
-  </script>
+// първо отваряне след 5 сек
+setTimeout(openPopup, 5000);
+
+// после на всеки 5 сек
+setInterval(() => {
+  openPopup();
+}, 5000);
+
+function openPopup() {
+  popup.style.display = "flex";
+}
+
+function closePopup() {
+  popup.style.display = "none";
+}
+</script>
+
 
   <!-- SEARCH OVERLAY -->
 <div id="searchOverlay" class="search-overlay">
@@ -173,5 +179,7 @@
 <script src="search.js"></script>
 </body>
 </html>
+
+
 
 
