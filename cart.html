@@ -22,10 +22,12 @@
       <li><a href="kidsproducts.html">ДЕЦА</a></li>
       <li><a href="homecollection.html">ДОМ</a></li>
       <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
     <div class="icons">
-      <a href="search.html">🔍</a>
-      <a href="favourites.html">♡</a>
+     <a href="#" id="openSearch">🔍</a>
+
+
       <a href="cart.html">🛍️</a>
     </div>
   </nav>
@@ -81,64 +83,159 @@
 <!-- JAVASCRIPT -->
 <script>
   const cartSection = document.getElementById("cartSection");
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if (cart.length === 0) {
-    cartSection.innerHTML = `
-      <div class="empty-cart">
-        <h1>Вашата количка е празна</h1>
-        <p>
-          Добавете избрани артикули, за да продължите към покупка
-          или влезте в профила си, за да видите запазените продукти.
-        </p>
-        <div class="empty-cart-actions">
-          <a href="my-account.html" class="btn-outline">ВХОД</a>
-          <a href="index.html" class="btn-primary">ПРОДЪЛЖИ ПАЗАРУВАНЕТО</a>
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function renderCart() {
+    if (!cart || cart.length === 0) {
+      cartSection.innerHTML = `
+        <div class="empty-cart">
+          <h1>Вашата количка е празна</h1>
+          <p>Добавете избрани артикули, за да продължите към покупка или влезте в профила си, за да видите запазените продукти.</p>
+          <div class="empty-cart-actions">
+            <a href="my-account.html" class="btn-outline">ВХОД</a>
+            <a href="index.html" class="btn-primary alt">ПРОДЪЛЖИ ПАЗАРУВАНЕТО</a>
+          </div>
         </div>
-      </div>
-    `;
-  } else {
+      `;
+      return;
+    }
+
     let total = 0;
-
-    cartSection.innerHTML = `
-      <div class="cart-container">
-        <h1>Вашата количка</h1>
-        <div class="cart-items"></div>
-        <div class="cart-summary">
-          <h3>Общо: <span id="cartTotal"></span></h3>
-          <button class="btn-primary">ПРОДЪЛЖИ КЪМ ПЛАЩАНЕ</button>
-        </div>
-      </div>
-    `;
-
-    const itemsContainer = document.querySelector(".cart-items");
+    let itemsHTML = '';
 
     cart.forEach((item, index) => {
-      total += item.price;
+      const qty = item.quantity || 1;
+      const lineTotal = (Number(item.price) || 0) * qty;
+      total += lineTotal;
 
-      itemsContainer.innerHTML += `
+      itemsHTML += `
         <div class="cart-item">
           <img src="${item.image}" alt="${item.name}">
           <div class="cart-info">
             <h4>${item.name}</h4>
-            <p>${item.size}</p>
-            <span>€${item.price}</span>
-            <button onclick="removeItem(${index})">Премахни</button>
+            <div class="cart-price">€${item.price}</div>
+            ${item.size ? `<div class="item-attribute"><strong>Размер:</strong> ${item.size}</div>` : ''}
+            ${item.color ? `<div class="item-attribute"><strong>Цвят:</strong> ${item.color}</div>` : ''}
+            ${item.material ? `<div class="item-attribute"><strong>Материал:</strong> ${item.material}</div>` : ''}
+            <div class="qty-controls">
+              <button class="qty-decrease" data-index="${index}">-</button>
+              <span class="qty">${qty}</span>
+              <button class="qty-increase" data-index="${index}">+</button>
+            </div>
+            <div class="line-total">€${lineTotal}</div>
+            <button class="remove" data-index="${index}">Премахни</button>
           </div>
         </div>
       `;
     });
 
-    document.getElementById("cartTotal").textContent = `€${total}`;
+    cartSection.innerHTML = `
+      <div class="cart-container">
+        <div class="cart-main">
+          <div class="cart-items">${itemsHTML}</div>
+          <aside class="cart-summary">
+            <h3>Общо</h3>
+            <p class="summary-total">€${total}</p>
+            <a href="checkout.html" class="btn-primary">ПРОДЪЛЖИ КЪМ ПЛАЩАНЕ</a>
+          </aside>
+        </div>
+      </div>
+    `;
+
+    // attach handlers
+    document.querySelectorAll('.remove').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = Number(btn.dataset.index);
+        cart.splice(idx, 1);
+        saveCart();
+        renderCart();
+      });
+    });
+
+    document.querySelectorAll('.qty-increase').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.index);
+        cart[idx].quantity = (cart[idx].quantity || 1) + 1;
+        saveCart();
+        renderCart();
+      });
+    });
+
+    document.querySelectorAll('.qty-decrease').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.index);
+        cart[idx].quantity = (cart[idx].quantity || 1) - 1;
+        if (cart[idx].quantity < 1) cart[idx].quantity = 1;
+        saveCart();
+        renderCart();
+      });
+    });
   }
 
-  function removeItem(index) {
-    cart.splice(index, 1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    location.reload();
-  }
+  renderCart();
 </script>
 
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="search.js"></script>
 </body>
 </html>
+<script>
+const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+const container = document.getElementById("cart-items");
+
+if (cartItems.length === 0) {
+  container.innerHTML = "<p>Количката е празна</p>";
+} else {
+  cartItems.forEach(item => {
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}" width="80">
+        <div>
+          <h4>${item.name}</h4>
+          <p>Цена: €${item.price}</p>
+          <p>Количество: ${item.quantity}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
 
