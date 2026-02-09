@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Éclat | Плащане</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .checkout-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .checkout-form {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .checkout-form h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .payment-methods {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid #ddd;
+    }
+
+    .payment-methods h3 {
+      margin-bottom: 1rem;
+    }
+
+    .payment-option {
+      margin-bottom: 1rem;
+    }
+
+    .payment-option input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    .payment-option label {
+      display: inline;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .checkout-summary {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 8px;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .checkout-summary h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .order-items {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .order-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .order-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .order-item-info {
+      flex: 1;
+    }
+
+    .order-item-info h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .order-item-info p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .order-summary {
+      margin-top: 2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-row.total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding-top: 1rem;
+      border-top: 2px solid #ddd;
+      margin-top: 1rem;
+    }
+
+    .btn-place-order {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 2rem;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-place-order:hover {
+      background: #1a2634;
+    }
+
+    .btn-place-order:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .back-to-cart {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-to-cart:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-container {
+        grid-template-columns: 1fr;
+      }
+
+      .checkout-summary {
+        position: static;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    Безплатна доставка и връщане на всички поръчки
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">MAISON ÉCLAT</div>
+    <ul class="menu">
+      <li><a href="index.html">НАЧАЛО</a></li>
+      <li><a href="menproducts.html">МЪЖЕ</a></li>
+      <li><a href="womenproducts.html">ЖЕНИ</a></li>
+      <li><a href="kidsproducts.html">ДЕЦА</a></li>
+      <li><a href="homecollection.html">ДОМ</a></li>
+      <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
+      <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
+    </ul>
+    <div class="icons">
+     <a href="#" id="openSearch">🔍</a>
+      <a href="cart.html">🛍️</a>
+    </div>
+  </nav>
+</header>
+
+<section class="checkout-section">
+  <a href="cart.html" class="back-to-cart">← Обратно до количка</a>
+
+  <div class="checkout-container">
+    <!-- CHECKOUT FORM -->
+    <form id="checkoutForm" class="checkout-form">
+      <h2>Доставка и Плащане</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">Име *</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Фамилия *</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Телефонен номер *</label>
+        <input type="tel" id="mobile" name="mobile" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email (незадължително)</label>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="street">Адрес (улица и номер) *</label>
+        <input type="text" id="street" name="street" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">Град *</label>
+          <input type="text" id="city" name="city" required>
+        </div>
+        <div class="form-group">
+          <label for="postal">Пощенски код *</label>
+          <input type="text" id="postal" name="postal" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Държава *</label>
+        <select id="country" name="country" required>
+          <option value="">Изберете държава</option>
+          <option value="Bulgaria">България</option>
+          <option value="Romania">Румъния</option>
+          <option value="Greece">Греция</option>
+          <option value="Serbia">Сърбия</option>
+          <option value="North Macedonia">Северна Македония</option>
+          <option value="Turkey">Турция</option>
+          <option value="Other">Друга</option>
+        </select>
+      </div>
+
+      <div class="payment-methods">
+        <h3>Метод на плащане</h3>
+
+        <div class="payment-option">
+          <input type="radio" id="visa" name="paymentMethod" value="Visa" required>
+          <label for="visa">Visa</label>
+        </div>
+
+        <div class="payment-option">
+          <input type="radio" id="mastercard" name="paymentMethod" value="Mastercard">
+          <label for="mastercard">Mastercard</label>
+        </div>
+
+        <div class="payment-option">
+          <input type="radio" id="amex" name="paymentMethod" value="American Express">
+          <label for="amex">American Express</label>
+        </div>
+
+        <div class="payment-option">
+          <input type="radio" id="cod" name="paymentMethod" value="Cash on Delivery">
+          <label for="cod">Наложен платеж</label>
+        </div>
+      </div>
+
+      <!-- CARD DETAILS SECTION -->
+      <div id="cardDetailsSection" class="payment-methods">
+        <h3>Детайли на карта</h3>
+
+        <div class="form-group">
+          <label for="cardName">Име на карта *</label>
+          <input type="text" id="cardName" name="cardName" placeholder="Име както е написано на карта">
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">Номер на карта *</label>
+          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cardExpiry">Дата на изтичане *</label>
+            <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5">
+          </div>
+          <div class="form-group">
+            <label for="cardCVV">CVV *</label>
+            <input type="text" id="cardCVV" name="cardCVV" placeholder="123" maxlength="4">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-place-order">ПОТВЪРДИ ПОРЪЧКАТА</button>
+    </form>
+
+    <!-- CHECKOUT SUMMARY -->
+    <aside class="checkout-summary">
+      <h2>Вашата поръчка</h2>
+
+      <div class="order-items" id="orderItems"></div>
+
+      <div class="order-summary">
+        <div class="summary-row">
+          <span>Подсумица:</span>
+          <span id="subtotal">€0</span>
+        </div>
+        <div class="summary-row">
+          <span>Доставка:</span>
+          <span>Безплатна</span>
+        </div>
+        <div class="summary-row total">
+          <span>Общо:</span>
+          <span id="orderTotal">€0</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-column">
+      <h3>MAISON ÉCLAT</h3>
+      <p>
+        Maison Éclat е луксозен онлайн магазин, предлагащ
+        внимателно подбрани продукти, съчетаващи стил,
+        качество и елегантност.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="terms.html">Общи условия</a></li>
+        <li><a href="privacy.html">Политика за поверителност</a></li>
+        <li><a href="cookies.html">Политика за бисквитки</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Пазаруване</h4>
+      <ul>
+        <li><a href="delivery.html">Информация за доставка</a></li>
+        <li><a href="returns.html">Връщане и замяна</a></li>
+        <li><a href="faq.html">Често задавани въпроси</a></li>
+        <li><a href="gifts.html">Подаръци</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Контакти</h4>
+      <ul>
+        <li>Email: support@maisoneclat.com</li>
+        <li>Телефон: +359 888 123 456</li>
+        <li><a href="contact.html">Свържи се с нас</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Load cart and populate order summary
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const orderItems = document.getElementById("orderItems");
+  const subtotalEl = document.getElementById("subtotal");
+  const orderTotalEl = document.getElementById("orderTotal");
+
+  if (cart.length === 0) {
+    orderItems.innerHTML = '<p style="color: #999;">Количката е празна. <a href="cart.html">Обратно</a></p>';
+    subtotalEl.textContent = '€0';
+    orderTotalEl.textContent = '€0';
+  } else {
+    let subtotal = 0;
+    cart.forEach(item => {
+      const qty = item.quantity || 1;
+      const lineTotal = (Number(item.price) || 0) * qty;
+      subtotal += lineTotal;
+
+      orderItems.innerHTML += `
+        <div class="order-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="order-item-info">
+            <h4>${item.name}</h4>
+            ${item.size ? `<p style="font-size: 0.85rem; color: #999;">Размер: ${item.size}</p>` : ''}
+            ${item.color ? `<p style="font-size: 0.85rem; color: #999;">Цвят: ${item.color}</p>` : ''}
+            ${item.material ? `<p style="font-size: 0.85rem; color: #999;">Материал: ${item.material}</p>` : ''}
+            <p>€${item.price} x ${qty}</p>
+            <p style="font-weight: 600;">€${lineTotal}</p>
+          </div>
+        </div>
+      `;
+    });
+
+    subtotalEl.textContent = '€' + subtotal;
+    orderTotalEl.textContent = '€' + subtotal;
+  }
+
+  // Load saved checkout data if exists
+  const savedCheckout = JSON.parse(localStorage.getItem("checkout")) || {};
+  if (savedCheckout.firstName) document.getElementById("firstName").value = savedCheckout.firstName;
+  if (savedCheckout.lastName) document.getElementById("lastName").value = savedCheckout.lastName;
+  if (savedCheckout.mobile) document.getElementById("mobile").value = savedCheckout.mobile;
+  if (savedCheckout.email) document.getElementById("email").value = savedCheckout.email;
+  if (savedCheckout.street) document.getElementById("street").value = savedCheckout.street;
+  if (savedCheckout.city) document.getElementById("city").value = savedCheckout.city;
+  if (savedCheckout.postal) document.getElementById("postal").value = savedCheckout.postal;
+  if (savedCheckout.country) document.getElementById("country").value = savedCheckout.country;
+  if (savedCheckout.paymentMethod) {
+    document.querySelector(`input[name="paymentMethod"][value="${savedCheckout.paymentMethod}"]`).checked = true;
+  }
+
+  // Show/hide card details based on payment method
+  const cardDetailsSection = document.getElementById("cardDetailsSection");
+  const paymentMethodInputs = document.querySelectorAll('input[name="paymentMethod"]');
+
+  function toggleCardDetails() {
+    const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    if (selectedMethod === "Cash on Delivery") {
+      cardDetailsSection.style.display = "none";
+      // Remove required attribute from card fields
+      document.getElementById("cardName").removeAttribute("required");
+      document.getElementById("cardNumber").removeAttribute("required");
+      document.getElementById("cardExpiry").removeAttribute("required");
+      document.getElementById("cardCVV").removeAttribute("required");
+    } else {
+      cardDetailsSection.style.display = "block";
+      // Add required attribute to card fields
+      document.getElementById("cardName").setAttribute("required", "required");
+      document.getElementById("cardNumber").setAttribute("required", "required");
+      document.getElementById("cardExpiry").setAttribute("required", "required");
+      document.getElementById("cardCVV").setAttribute("required", "required");
+    }
+  }
+
+  // Initial check
+  toggleCardDetails();
+
+  // Listen to payment method changes
+  paymentMethodInputs.forEach(input => {
+    input.addEventListener("change", toggleCardDetails);
+  });
+
+  // Handle form submission
+  document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const checkoutData = {
+      firstName: document.getElementById("firstName").value,
+      lastName: document.getElementById("lastName").value,
+      mobile: document.getElementById("mobile").value,
+      email: document.getElementById("email").value,
+      street: document.getElementById("street").value,
+      city: document.getElementById("city").value,
+      postal: document.getElementById("postal").value,
+      country: document.getElementById("country").value,
+      paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+      orderDate: new Date().toISOString(),
+      cartItems: cart
+    };
+
+    // Save checkout data
+    localStorage.setItem("checkout", JSON.stringify(checkoutData));
+
+    // Clear cart
+    localStorage.removeItem("cart");
+
+    // Redirect to confirmation page (you can create this later)
+    alert("Поръчката е потвърдена! Благодарим за покупката.");
+    window.location.href = "index.html";
+  });
+</script>
+
+<script src="search.js"></script>
+</body>
+</html>
