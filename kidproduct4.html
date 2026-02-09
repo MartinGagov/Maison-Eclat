@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maison Éclat | Moncler Детско Яке</title>
+  <title>Maison Éclat | Loro Piana Детски Сникъри</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,48 +23,53 @@
       <li><a href="kidsproducts.html">ДЕЦА</a></li>
       <li><a href="homecollection.html">ДОМ</a></li>
       <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
-      <li><a href="discover.html">ОТКРИЙ</a></li>
+     <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
     <div class="icons">
-      <a href="#">🔍</a>
-      <a href="#">♡</a>
-      <a href="#">🛍️</a>
+      <a href="#" id="openSearch">🔍</a>
+
+
+      <a href="cart.html">🛍️</a>
     </div>
   </nav>
 </header>
 
-<section class="product-detail" aria-label="Информация за продукта Moncler Детско Яке">
+<section class="product-detail" aria-label="Информация за продукта Loro Piana Детски Сникъри">
   <div class="product-gallery">
-    <img class="main-image" id="mainImage" src="kids-moncler-jacket.avif" alt="Детско яке Moncler" />
+    <img class="main-image" id="mainImage" src="kids-lp-sneakers.jpeg" alt="Loro Piana детски сникъри" />
     <div class="thumbnails">
-      <img src="kids-moncler-jacket.avif" class="selected" alt="Яке – основна снимка" />
-      <img src="kids-moncler-jacket1.avif" alt="Яке – отблизо" />
-      <img src="kids-moncler-jacket2.avif" alt="Яке – отстрани" />
-      
+      <img src="kids-lp-sneakers.jpeg" class="selected" alt="Сникъри – основна снимка" />
+      <img src="kids-lp-sneakers1.jpeg" alt="Сникъри – отблизо" />
+      <img src="kids-lp-sneakers2.jpeg" alt="Сникъри – отстрани" />
+      <img src="kids-lp-sneakers3.jpeg" alt="Сникъри – гръб" />
     </div>
   </div>
 
   <div class="product-info">
-    <h2>Moncler Детско Яке</h2>
+    <h2>Loro Piana Детски Сникъри</h2>
     <p>
-      Леко и топло пухено яке с изчистен дизайн. Идеално за по-студено време, с комфортна кройка и устойчиви материали за активни деца.
+      Комфортни и висококачествени сникъри от естествена кожа. Подходящи за ежедневие, училище и спортни активности. Лек и издръжлив дизайн за деца.
     </p>
-    <span class="price">€650</span>
+    <span class="price">€380</span>
 
     <label for="size">Размер:</label>
-    <select id="size" name="size" aria-label="Изберете детски размер">
+    <select id="size" name="size" aria-label="Изберете размер за деца">
       <option value="">Изберете размер</option>
-      <option value="4">4 години</option>
-      <option value="6">6 години</option>
-      <option value="8">8 години</option>
-      <option value="10">10 години</option>
-      <option value="12">12 години</option>
-      <option value="14">14 години</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="34">34</option>
+      <option value="35">35</option>
+      <option value="36">36</option>
+      <option value="37">37</option>
+      <option value="38">38</option>
     </select>
 
     <div class="buttons">
       <button class="btn" type="button">Добави в количка</button>
-      <a href="favourites.html" class="fav-btn">ДОБАВИ В ЛЮБИМИ</a>
     </div>
 
     <details>
@@ -84,8 +89,8 @@
 
     <details>
       <summary>⭐ Ревюта</summary>
-      <p><strong>Мария П.</strong>: Якетата са топли и удобни за зимата.</p>
-      <p><strong>Иван Д.</strong>: Отлично качество и лесно поддържане. Препоръчвам!</p>
+      <p><strong>Иванка П.</strong>: Сникърите са изключително удобни за детето ми.</p>
+      <p><strong>Мария С.</strong>: Отлично качество и стабилна подметка. Препоръчвам!</p>
 
       <div class="review-form">
         <h4>Остави своето мнение</h4>
@@ -106,7 +111,7 @@
 </section>
 
 <footer>
- <div class="footer-container">
+  <div class="footer-container">
      <!-- Бранд -->
     <div class="footer-column">
       <h3>MAISON ÉCLAT</h3>
@@ -181,5 +186,48 @@
   });
 </script>
 
+<script src="search.js"></script>
+
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
+
+
+
+
+
+
+
