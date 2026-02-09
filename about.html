@@ -24,12 +24,11 @@
       <li><a href="kidsproducts.html">ДЕЦА</a></li>
       <li><a href="homecollection.html">ДОМ</a></li>
       <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
-      <li><a href="discover.html">ОТКРИЙ</a></li>
+      <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
     <div class="icons">
-      <a href="#">🔍</a>
-      <a href="#">♡</a>
-      <a href="#">🛍️</a>
+      <a href="search.html">🔍</a>
+      <a href="cart.html">🛍️</a>
     </div>
   </nav>
 </header>
@@ -68,14 +67,13 @@
   достойна за най-взискателните клиенти.
     </p>
 
-      
     </div>
 
     <div class="about-block">
       <h2>Естетика и идентичност</h2>
       <p>
         Визуалната идентичност на Maison Éclat е вдъхновена от
-        класическата „Old Money“ естетика – изчистени линии,
+        класическата „Old Money" естетика – изчистени линии,
         неутрални цветове и усещане за дискретен лукс.
         Това е стил, който не търси внимание, а го заслужава.
       </p>
@@ -143,5 +141,41 @@
     <p>© 2025 Maison Éclat. Всички права запазени.</p>
   </div>
 
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="search.js"></script>
 </body>
 </html>
