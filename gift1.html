@@ -8,10 +8,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+<!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults"><div class="search-section">
+      <p class="search-label">Trending Searches</p>
+      <div class="trending">
+        <span>Quarter Zip</span>
+        <span>Cable Knit</span>
+        <span>Bear</span>
+        <span>Shirt</span>
+      </div>
+    </div>
+
+    <div id="searchResults"><div class="search-section">
+      <p class="search-label">Popular Categories</p>
+      <div class="categories">
+        <a href="menproducts.html">MEN</a>
+        <a href="womenproducts.html">WOMEN</a>
+        <a href="kidsproducts.html">KIDS</a>
+        <a href="homecollection.html">HOME</a>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+
+  </div></div>
+<script src="search.js"></script>
+</div>
 <body>
+<div id="header"></div>
 
 <header>
-  <div class="top-bar">
+  <div id="header"></div>
+
+<script>
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+</script>
+<div class="top-bar">
     Безплатна доставка и връщане на всички поръчки
   </div>
 
@@ -24,12 +68,12 @@
       <li><a href="kidsproducts.html">ДЕЦА</a></li>
       <li><a href="homecollection.html">ДОМ</a></li>
       <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
-      <li><a href="discover.html">ОТКРИЙ</a></li>
+    <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
     <div class="icons">
-      <a href="#">🔍</a>
-      <a href="#">♡</a>
-      <a href="#">🛍️</a>
+      <button id="openSearch" class="search-btn">🔍</button>
+
+      <button class="add-to-cart header-cart" onclick="addToCart({ id: 'nishane-ani', name: 'NISHANE ANI – Unisex', price: Number(document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'nishane-ani1.webp' })">🛍️</button>
     </div>
   </nav>
 </header>
@@ -83,8 +127,7 @@
 
     <!-- Бутони -->
     <div class="buttons">
-      <button class="btn" type="button">Добави в количка</button>
-      <a href="favourites.html" class="fav-btn" title="Добави в Любими">ДОБАВИ В ЛЮБИМИ</a>
+      <button class="btn add-to-cart" type="button" onclick="addToCart({ id: 'nishane-ani', name: 'NISHANE ANI – Unisex', price: Number(document.getElementById('price')?.textContent.replace(/[^0-9.]/g,'') || document.querySelector('.price').textContent.replace(/[^0-9.]/g,'')), image: 'nishane-ani1.webp' })">Добави в количка</button>
     </div>
 
     <!-- Доставка -->
@@ -177,17 +220,10 @@
   <div class="footer-bottom">
     <p>© 2025 Maison Éclat. Всички права запазени.</p>
   </div>
-</footer>
-
-  </footer>
-</body>
-</html>
 
   </footer>
 
-</body>
-</html>
-</footer>
+  
 
 <script>
   // Смяна на главната снимка при клик върху thumbnails
@@ -219,3 +255,50 @@
 
 </body>
 </html>
+
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults"><div class="search-section">
+      <p class="search-label">Trending Searches</p>
+      <div class="trending">
+        <span>Quarter Zip</span>
+        <span>Cable Knit</span>
+        <span>Bear</span>
+        <span>Shirt</span>
+      </div>
+    </div>
+
+    <div id="searchResults"><div class="search-section">
+      <p class="search-label">Popular Categories</p>
+      <div class="categories">
+        <a href="menproducts.html">MEN</a>
+        <a href="womenproducts.html">WOMEN</a>
+        <a href="kidsproducts.html">KIDS</a>
+        <a href="homecollection.html">HOME</a>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<script>
+  function addToCart(product) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) { existing.quantity += 1; } else { cart.push(Object.assign({}, product, { quantity: 1 })); }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html';
+  }
+</script>
+<script src="search.js"></script>
+</body>
+</html>
+
+
