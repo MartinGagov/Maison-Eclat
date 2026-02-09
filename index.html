@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bg">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Видео фон за цялата страница -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="background video.mp4" type="video/mp4">
@@ -28,12 +29,13 @@
         <li><a href="kidsproducts.html">ДЕЦА</a></li>
         <li><a href="homecollection.html">ДОМ</a></li>
         <li><a href="gifts.html">ПОДАРЪЦИ</a></li>
-        <li><a href="discover.html">ОТКРИЙ</a></li>
+        <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
       </ul>
       <div class="icons">
-        <a href="#">🔍</a>
-        <a href="#">♡</a>
-        <a href="#">🛍️</a>
+       <a href="#" id="openSearch">🔍</a>
+
+
+      <a href="cart.html">🛍️</a>
       </div>
     </nav>
   </header>
@@ -44,59 +46,132 @@
     <a href="products.html" class="btn">РАЗГЛЕДАЙ КОЛЕКЦИЯТА</a>
   </section>
 
-  
-    <footer class="site-footer">
-  <div class="footer-container">
+  <footer class="site-footer">
+    <div class="footer-container">
 
-    <!-- Бранд -->
-    <div class="footer-column">
-      <h3>MAISON ÉCLAT</h3>
-      <p>
-        Maison Éclat е луксозен онлайн магазин, предлагащ
-        внимателно подбрани продукти, съчетаващи стил,
-        качество и елегантност.
-      </p>
+      <div class="footer-column">
+        <h3>MAISON ÉCLAT</h3>
+        <p>
+          Maison Éclat е луксозен онлайн магазин, предлагащ
+          внимателно подбрани продукти, съчетаващи стил,
+          качество и елегантност.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Информация</h4>
+        <ul>
+          <li><a href="about.html">За нас</a></li>
+          <li><a href="terms.html">Общи условия</a></li>
+          <li><a href="privacy.html">Политика за поверителност</a></li>
+          <li><a href="cookies.html">Политика за бисквитки</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Пазаруване</h4>
+        <ul>
+          <li><a href="delivery.html">Информация за доставка</a></li>
+          <li><a href="returns.html">Връщане и замяна</a></li>
+          <li><a href="faq.html">Често задавани въпроси</a></li>
+          <li><a href="gifts.html">Подаръци</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Контакти</h4>
+        <ul>
+          <li>Email: support@maisoneclat.com</li>
+          <li>Телефон: +359 888 123 456</li>
+          <li><a href="contact.html">Свържи се с нас</a></li>
+        </ul>
+      </div>
+
     </div>
 
-    <!-- Информация -->
-    <div class="footer-column">
-      <h4>Информация</h4>
-      <ul>
-        <li><a href="about.html">За нас</a></li>
-        <li><a href="terms.html">Общи условия</a></li>
-        <li><a href="privacy.html">Политика за поверителност</a></li>
-        <li><a href="cookies.html">Политика за бисквитки</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2025 Maison Éclat. Всички права запазени.</p>
     </div>
-
-    <!-- Пазаруване -->
-    <div class="footer-column">
-      <h4>Пазаруване</h4>
-      <ul>
-        <li><a href="delivery.html">Информация за доставка</a></li>
-        <li><a href="returns.html">Връщане и замяна</a></li>
-        <li><a href="faq.html">Често задавани въпроси</a></li>
-        <li><a href="gifts.html">Подаръци</a></li>
-      </ul>
-    </div>
-
-    <!-- Контакти -->
-    <div class="footer-column">
-      <h4>Контакти</h4>
-      <ul>
-        <li>Email: support@maisoneclat.com</li>
-        <li>Телефон: +359 888 123 456</li>
-        <li><a href="contact.html">Свържи се с нас</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 Maison Éclat. Всички права запазени.</p>
-  </div>
-</footer>
-
   </footer>
+
+  <!-- 🔥 POPUP ЗА ИМЕЙЛ + 10% ОТСТЪПКА -->
+  <div id="newsletter-popup" class="popup-overlay" style="display:none;">
+    <div class="popup-box">
+      <button class="popup-close" onclick="closePopup()">×</button>
+
+      <h2>Ексклузивно предложение</h2>
+      <p>
+        Абонирайте се с имейл и получете
+        <strong>10% код за отстъпка</strong>
+        при първата си поръчка.
+      </p>
+
+      <form>
+        <input type="email" placeholder="Вашият имейл адрес" required>
+        <button type="submit" class="popup-btn">
+          Получи -10% код
+        </button>
+      </form>
+
+      <span class="popup-note">
+        С регистрацията се съгласявате с Общите условия и Политиката за поверителност.
+      </span>
+    </div>
+  </div>
+
+  <!-- JS ЗА POPUP -->
+  <script>
+    window.addEventListener("load", () => {
+      if (!localStorage.getItem("popupShown")) {
+        setTimeout(() => {
+          document.getElementById("newsletter-popup").style.display = "flex";
+          localStorage.setItem("popupShown", "true");
+        }, 3000);
+      }
+    });
+
+    function closePopup() {
+      document.getElementById("newsletter-popup").style.display = "none";
+    }
+  </script>
+
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="search.js"></script>
 </body>
 </html>
+
+
