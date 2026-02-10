@@ -25,8 +25,8 @@
       <li><a href="my-account.html">МОЯТ АКАУНТ</a></li>
     </ul>
     <div class="icons">
-      <a href="search.html">🔍</a>
-      <a href="favourites.html">♡</a>
+     <a href="#" id="openSearch">🔍</a>
+
       <a href="cart.html">🛍️</a>
     </div>
   </nav>
@@ -150,5 +150,41 @@
   </div>
 </footer>
 
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch" class="close-search">✕</button>
+
+  <div class="search-content">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Търсете продукт, марка или категория" />
+    </div>
+
+    <div id="searchResults">
+      <div class="search-section">
+        <p class="search-label">Trending Searches</p>
+        <div class="trending">
+          <span>Quarter Zip</span>
+          <span>Cable Knit</span>
+          <span>Coat</span>
+          <span>Shoes</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <p class="search-label">Popular Categories</p>
+        <div class="categories">
+          <a href="menproducts.html">MEN</a>
+          <a href="womenproducts.html">WOMEN</a>
+          <a href="kidsproducts.html">KIDS</a>
+          <a href="homecollection.html">HOME</a>
+          <a href="gifts.html">GIFTS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="search.js"></script>
 </body>
 </html>
