@@ -88,25 +88,42 @@
       </ul>
     </details>
 
-    <details>
-      <summary>⭐ Ревюта</summary>
-      <p><strong>Иванка П.</strong>: Сникърите са изключително удобни за детето ми.</p>
-      <p><strong>Мария С.</strong>: Отлично качество и стабилна подметка. Препоръчвам!</p>
+   <details open>
+  <summary>⭐ Ревюта</summary>
 
-      <div class="review-form">
-        <h4>Остави своето мнение</h4>
-        <form action="#" method="post">
-          <label for="name">Име:</label><br>
-          <input type="text" id="name" name="name" placeholder="Вашето име" required><br><br>
+  <!-- ⭐ SUMMARY -->
+  <div class="review-summary">
+    <span id="avgRating">0.0</span> / 5
+    <span id="reviewCount">(0 ревюта)</span>
+  </div>
 
-          <label for="review">Мнение:</label><br>
-          <textarea id="review" name="review" rows="4" placeholder="Напишете вашето мнение тук..." required></textarea><br><br>
+  <!-- REVIEWS LIST -->
+  <div id="reviewsList"></div>
 
-          <button type="submit" class="review-btn">Изпрати</button>
-        </form>
-      </div>
+  <!-- FORM -->
+  <div class="review-form">
+    <h4>Остави своето мнение</h4>
 
-    </details>
+    <input type="text" id="reviewName" placeholder="Вашето име">
+
+    <textarea id="reviewText" placeholder="Вашето мнение..." rows="4"></textarea>
+
+    <!-- ⭐ RATING -->
+    <div class="star-rating">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+
+    <!-- IMAGE -->
+    <input type="file" id="reviewImage" accept="image/*">
+
+    <button class="review-btn" onclick="addReview()">Изпрати</button>
+  </div>
+</details>
+
 
   </div>
 </section>
@@ -366,6 +383,7 @@ window.onload = loadReviews;
 </script>
 </body>
 </html>
+
 
 
 
