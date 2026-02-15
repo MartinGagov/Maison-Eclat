@@ -80,25 +80,42 @@
       </ul>
     </details>
 
-    <details>
-      <summary>⭐ Ревюта</summary>
-      <p><strong>Анна К.</strong>: Роклята е изключително елегантна и мека.</p>
-      <p><strong>Илия П.</strong>: Отлично качество и перфектно пасва на дъщеря ми.</p>
+   <details open>
+  <summary>⭐ Ревюта</summary>
 
-      <div class="review-form">
-        <h4>Остави своето мнение</h4>
-        <form action="#" method="post">
-          <label for="name">Име:</label><br>
-          <input type="text" id="name" name="name" placeholder="Вашето име" required><br><br>
+  <!-- ⭐ SUMMARY -->
+  <div class="review-summary">
+    <span id="avgRating">0.0</span> / 5
+    <span id="reviewCount">(0 ревюта)</span>
+  </div>
 
-          <label for="review">Мнение:</label><br>
-          <textarea id="review" name="review" rows="4" placeholder="Напишете вашето мнение тук..." required></textarea><br><br>
+  <!-- REVIEWS LIST -->
+  <div id="reviewsList"></div>
 
-          <button type="submit" class="review-btn">Изпрати</button>
-        </form>
-      </div>
+  <!-- FORM -->
+  <div class="review-form">
+    <h4>Остави своето мнение</h4>
 
-    </details>
+    <input type="text" id="reviewName" placeholder="Вашето име">
+
+    <textarea id="reviewText" placeholder="Вашето мнение..." rows="4"></textarea>
+
+    <!-- ⭐ RATING -->
+    <div class="star-rating">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+
+    <!-- IMAGE -->
+    <input type="file" id="reviewImage" accept="image/*">
+
+    <button class="review-btn" onclick="addReview()">Изпрати</button>
+  </div>
+</details>
+
 
   </div>
 </section>
@@ -215,8 +232,150 @@
     </div>
   </div>
 
+<script>
+
+const productId = "Диор детска рокля"; 
+let selectedRating = 0;
+
+
+// ⭐ SELECT RATING
+document.querySelectorAll(".star-rating span").forEach(star => {
+  star.addEventListener("click", () => {
+
+    selectedRating = star.dataset.value;
+
+    document.querySelectorAll(".star-rating span").forEach(s => s.classList.remove("active"));
+
+    for (let i = 0; i < selectedRating; i++) {
+      document.querySelectorAll(".star-rating span")[i].classList.add("active");
+    }
+  });
+});
+
+
+// ➕ ADD REVIEW
+function addReview() {
+
+  const name = document.getElementById("reviewName").value.trim();
+  const text = document.getElementById("reviewText").value.trim();
+  const imageFile = document.getElementById("reviewImage").files[0];
+
+  if (!name || !text || selectedRating === 0) {
+    alert("Попълни всички полета и рейтинг");
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function () {
+
+    const review = {
+      id: Date.now(),
+      name,
+      text,
+      rating: Number(selectedRating),
+      image: imageFile ? reader.result : null,
+      helpful: 0,
+      verified: Math.random() > 0.5,
+      date: new Date().toLocaleDateString()
+    };
+
+    let reviews = JSON.parse(localStorage.getItem("reviews_" + productId)) || [];
+    reviews.push(review);
+
+    localStorage.setItem("reviews_" + productId, JSON.stringify(reviews));
+
+    resetForm();
+    loadReviews();
+  };
+
+  if (imageFile) reader.readAsDataURL(imageFile);
+  else reader.onload();
+}
+
+
+// RESET FORM
+function resetForm() {
+  document.getElementById("reviewName").value = "";
+  document.getElementById("reviewText").value = "";
+  document.getElementById("reviewImage").value = "";
+  selectedRating = 0;
+  document.querySelectorAll(".star-rating span").forEach(s => s.classList.remove("active"));
+}
+
+
+// 👍 HELPFUL
+function markHelpful(id) {
+
+  let reviews = JSON.parse(localStorage.getItem("reviews_" + productId)) || [];
+
+  reviews.forEach(r => {
+    if (r.id === id) r.helpful++;
+  });
+
+  localStorage.setItem("reviews_" + productId, JSON.stringify(reviews));
+  loadReviews();
+}
+
+
+// 🗑 DELETE
+function deleteReview(id) {
+
+  let reviews = JSON.parse(localStorage.getItem("reviews_" + productId)) || [];
+  reviews = reviews.filter(r => r.id !== id);
+
+  localStorage.setItem("reviews_" + productId, JSON.stringify(reviews));
+  loadReviews();
+}
+
+
+// 📊 LOAD REVIEWS
+function loadReviews() {
+
+  const reviews = JSON.parse(localStorage.getItem("reviews_" + productId)) || [];
+  const container = document.getElementById("reviewsList");
+
+  container.innerHTML = "";
+
+  let totalRating = 0;
+
+  reviews.forEach(r => totalRating += r.rating);
+
+  const avg = reviews.length ? (totalRating / reviews.length).toFixed(1) : 0;
+
+  document.getElementById("avgRating").textContent = avg;
+  document.getElementById("reviewCount").textContent = `(${reviews.length} ревюта)`;
+
+  reviews.reverse().forEach(r => {
+
+    const stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+
+    container.innerHTML += `
+      <div class="single-review">
+        <strong>${r.name}</strong>
+        ${r.verified ? '<span class="verified">✔ Verified Purchase</span>' : ''}
+        <div style="color:gold">${stars}</div>
+        <p>${r.text}</p>
+        ${r.image ? `<img src="${r.image}" class="review-img">` : ""}
+        <div style="margin-top:10px;">
+          <span class="helpful-btn" onclick="markHelpful(${r.id})">
+            👍 Helpful (${r.helpful})
+          </span>
+          <span class="review-delete" onclick="deleteReview(${r.id})">
+            Изтрий
+          </span>
+        </div>
+      </div>
+    `;
+  });
+}
+
+window.onload = loadReviews;
+
+</script>
 </body>
 </html>
+
 
 
 
